@@ -1,6 +1,6 @@
 use crate::{NUM_COLS, NUM_ROWS};
 
-type Frame = Vec<Vec<&'static str>>;
+pub type Frame = Vec<Vec<&'static str>>;
 
 pub fn new_frame() -> Frame {
     let mut cols = Vec::with_capacity(NUM_COLS);
