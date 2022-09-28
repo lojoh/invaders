@@ -25,11 +25,15 @@ fn main() -> Result<(), Box<dyn Error>> {
         let path_str = path.to_str().unwrap();
         println!("PATH: {}", path_str);
 
+        //// THE CODE BELOW IS NOT USED ////
+        #[allow(clippy::single_char_pattern)]
+        // An extra backslash is needed to escape the other backslash thus are we splitting the string by only one backslash.
         let split = path_str.split("\\");
 
         for s in split {
             println!("s: {}", s);
         }
+        //// THE CODE ABOVE IS NOT USED ////
     }
 
     // TODO: Loop through audio folder and set this programmtically
@@ -54,6 +58,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let mut last_frame = frame::new_frame();
         let mut stdout = io::stdout();
         render::render(&mut stdout, &last_frame, &last_frame, true);
+
         loop {
             let curr_frame = match render_rx.recv() {
                 Ok(x) => x,

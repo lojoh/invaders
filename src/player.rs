@@ -48,17 +48,19 @@ impl Player {
     pub fn detect_hits(&mut self, invaders: &mut Invaders) -> bool {
         let mut hit_something = false;
         for shot in self.shots.iter_mut() {
-            if !shot.exploding {
-                if invaders.kill_invader_at(shot.x, shot.y) {
-                    hit_something = true;
-                    shot.explode();
-                }
+            if !shot.exploding && invaders.kill_invader_at(shot.x, shot.y) {
+                hit_something = true;
+                shot.explode();
             }
         }
         hit_something
     }
 }
-
+impl Default for Player {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 impl Drawable for Player {
     fn draw(&self, frame: &mut Frame) {
         frame[self.x][self.y] = "A";

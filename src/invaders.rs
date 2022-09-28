@@ -89,7 +89,11 @@ impl Invaders {
         }
     }
 }
-
+impl Default for Invaders {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 impl Drawable for Invaders {
     fn draw(&self, frame: &mut crate::frame::Frame) {
         for invader in self.army.iter() {
