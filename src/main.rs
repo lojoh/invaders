@@ -27,7 +27,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
         //// THE CODE BELOW IS NOT USED ////
         #[allow(clippy::single_char_pattern)]
-        // An extra backslash is needed to escape the other backslash thus are we splitting the string by only one backslash.
+        // An extra backslash is needed to escape the other backslash
         let split = path_str.split("\\");
 
         for s in split {
