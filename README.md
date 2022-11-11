@@ -1,1 +1,1 @@
-Space invaders clone in the terminal
+Space invaders clone that runs in the terminal. Written in Rust.
